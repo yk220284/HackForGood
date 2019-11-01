@@ -16,7 +16,7 @@
     <aside>
         <p>This shoule be on side </p>
     </aside>
-    <form action=#>
+    <form action="{% url 'cards:change colour' %}">
         <div class="entry">
             <figure>
                 <img src="images/yellow.jpeg" />
@@ -35,10 +35,7 @@
                 </figcaption>
             </figure>
         </div>
-
-
-
-
+        <button name="submit">submit</button>
     </form>
 </body>
 <footer>
