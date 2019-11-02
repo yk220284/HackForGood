@@ -26,3 +26,9 @@ class Card(models.Model):
 
     def __str__(self):
         return self.card_name
+
+
+class Trade(models.Model):
+    requester = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='out_trade')
+    acceptor = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='in_trade')
+    trade_time = models.DateTimeField(auto_now_add=True)

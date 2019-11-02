@@ -11,7 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         .wrapper {
-            background-color: {{player.colour}};
+            background-color:{{player.colour}}
+            ;
         }
     </style>
 </header>
@@ -60,8 +61,8 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'cards:gain card' %}">get a card</a></li>
-                        <li><a href="{% url 'cards:logout' %}">logout</a></li>
+                        <li><a href="{% url 'cards:gain card' %}">get a card</a ></li>
+                        <li><a href="{% url 'cards:logout' %}">logout</a ></li>
                     </ul>
 
                 </div>
@@ -75,7 +76,7 @@
             <ul class="w3-ul w3-card-4">
                 <li class="w3-bar">
                     <a href="{% url 'cards:game' %}"
-                        class="w3-bar-item w3-button w3-white w3-xlarge w3-right">challenge</a>
+                        class="w3-bar-item w3-button w3-white w3-xlarge w3-right">challenge</a >
                     {% if friend.profile_image == 'friend1' %}
                     <img src="{% static 'images/friend1.png' %}" alt="User Name"
                         class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
@@ -103,6 +104,7 @@
                     <div class="w3-bar-item">
                         <span class="w3-large">{{ friend.name }}</span><br>
                         <span>{{friend.colour}}</span>
+                        <a href="{% url 'cards:trade' friend.user_id %}">trade</a>
                     </div>
                 </li>
             </ul>
@@ -195,4 +197,4 @@
     </div>
 </body>
 
-</html>
+</html></html>

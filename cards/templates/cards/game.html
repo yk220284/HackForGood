@@ -1,3 +1,40 @@
-<tr>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>GAME HUB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-</tr>
+<body>
+
+    <div class="w3-container">
+        <h2>GAME HUB</h2>
+        <p>Choose your today's fav <a href="{% url 'cards:profile' %}">back</a></p>
+
+        <ul class="w3-ul w3-card-4">
+            <li class="w3-bar">
+                <a href="{% url 'cards:profile' %}" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">START</a>
+                <img src="{% static 'images/whospy.png' %}" class="w3-bar-item w3-circle w3-hide-small"
+                    style="width:85px">
+                <div class="w3-bar-item">
+                    <span class="w3-large">WHO'S SPY</span><br>
+                    <span>Difficulty: easy</span>
+                </div>
+            </li>
+
+            <li class="w3-bar">
+                <a href="{% url 'cards:get card' %}" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">START</a>
+                <img src="{% static 'images/youdrawiguess.png' %}" class="w3-bar-item w3-circle w3-hide-small"
+                    style="width:85px">
+                <div class="w3-bar-item">
+                    <span class="w3-large">YOU DRAW I GUESS</span><br>
+                    <span>Difficulty: medium</span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>
