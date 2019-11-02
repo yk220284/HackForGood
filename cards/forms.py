@@ -1,7 +1,9 @@
 from django import forms
+from .models import Player, Card
 
-choices = (('red', 'red'), ('blue', 'blue'))
 
-
-class ChangeColourForm(forms.Form):
-    colour = forms.ChoiceField(choices=choices, widget=forms.RadioSelect)
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        fields = ['name']
+        labels = {'name': 'name'}

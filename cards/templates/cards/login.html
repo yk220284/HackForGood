@@ -1,0 +1,6 @@
+ <form method="post" action="{% url 'cards:login' %}" class="form">
+     {% csrf_token %}
+     {{ form.as_p }}
+     <button name="submit" >log in</button>
+     <input type="hidden" name="next" value="{% url 'cards:profile' %}" />
+ </form>

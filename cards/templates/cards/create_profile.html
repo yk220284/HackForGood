@@ -1,0 +1,5 @@
+<form action="{% url 'cards:create profile' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">submit</button>
+</form>

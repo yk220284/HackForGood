@@ -16,7 +16,8 @@
     <aside>
         <p>This shoule be on side </p>
     </aside>
-    <form action="{% url 'cards:change colour' %}">
+    <form action="{% url 'cards:change colour' %}" method="post">
+        {% csrf_token %}
         <div class="entry">
             <figure>
                 <img src="images/yellow.jpeg" />
