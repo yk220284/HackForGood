@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import ProfileForm
-from .models import Player, Card
+from .models import Player, Card, Trade
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth import logout, login, authenticate
@@ -98,4 +98,19 @@ def avatar(request):
 
 
 def game(request):
-    return render(request,'cards/game.html')
+    return render(request, 'cards/game.html')
+
+
+def trade(request, acceptor_id):
+    requester = Player.objects.get(user=request.user)
+    acceptor = Player.objects.get(user_id=acceptor_id)
+    if requester.card_set.filter(original_owner=requester.name) and acceptor.card_set.filter(
+            original_owner=acceptor.name):
+        c1 = list(requester.card_set.filter(original_owner=requester.name))[0]
+        c2 = list(acceptor.card_set.filter(original_owner=acceptor.name))[0]
+        t = Trade.objects.create(requester=requester, acceptor=acceptor)
+        c1.owner = acceptor
+        c2.owner = requester
+        c1.save()
+        c2.save()
+    return HttpResponseRedirect(reverse('cards:profile'))

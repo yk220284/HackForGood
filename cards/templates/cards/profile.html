@@ -64,6 +64,48 @@
                         <li><a href="{% url 'cards:logout' %}">logout</a></li>
                     </ul>
 
+<<<<<<< HEAD
+=======
+            </div>
+        </nav>
+    </header>
+</div>
+<div class="page" id="Friends" style="display:none">
+    {% for friend in friends_list %}
+    <div class="w3-container">
+        <ul class="w3-ul w3-card-4">
+            <li class="w3-bar">
+                <a href="{% url 'cards:game' %}"
+                   class="w3-bar-item w3-button w3-white w3-xlarge w3-right">challenge</a>
+                {% if friend.profile_image == 'friend1' %}
+                <img src="{% static 'images/friend1.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend2' %}
+                <img src="{% static 'images/friend2.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend3' %}
+                <img src="{% static 'images/friend3.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend4' %}
+                <img src="{% static 'images/friend4.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend5' %}
+                <img src="{% static 'images/friend5.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend6' %}
+                <img src="{% static 'images/friend6.png' %}" alt="User Name" class="w3-bar-item w3-circle
+                w3-hide-small" style="width:85px">
+                {% endif %}
+                <a href="{% url 'cards:trade' friend.user_id %}">trade</a>
+                <div class="w3-bar-item">
+                    <span class="w3-large">{{ friend.name }}</span><br>
+                    <span>{{friend.colour}}</span>
+>>>>>>> added trade
                 </div>
             </nav>
         </header>
