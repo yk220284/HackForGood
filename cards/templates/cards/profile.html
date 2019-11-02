@@ -1,2 +1,10 @@
 <p>{{ player.name }}
-{{ player.colour }}</p>
+{{ player.colour }}</p><br/>
+{% for c in cards %}
+<p>{{ c.card_name }}
+    {{ c.card_colour }}<br/></p>
+{% endfor %}
+<br/>
+<a href="{% url 'cards:logout' %}">logout</a><br/>
+<a href="{% url 'cards:change colour' %}">change colour</a><br/>
+<a href="{% url 'cards:gain card' %}">get a card</a>

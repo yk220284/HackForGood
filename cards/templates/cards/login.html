@@ -3,4 +3,6 @@
      {{ form.as_p }}
      <button name="submit" >log in</button>
      <input type="hidden" name="next" value="{% url 'cards:profile' %}" />
+     <br/>
+     <a href="{% url 'cards:register' %}">register</a>
  </form>

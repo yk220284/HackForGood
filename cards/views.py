@@ -5,13 +5,15 @@ from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+@login_required
 def profile(request):
     player = Player.objects.get(user=request.user)
-    context = {'player': player}
+    cards = player.card_set.order_by('-date_added')
+    context = {'player': player, 'cards': cards}
     return render(request, 'cards/profile.html', context)
 
 
@@ -54,3 +56,16 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'cards/register.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('cards:login'))
+
+
+@login_required
+def gain_card(request):
+    player = Player.objects.get(user=request.user)
+    c = Card.objects.create(card_name='not decided', owner=player, card_colour='white', original_owner=player)
+    context = {'card': c}
+    return HttpResponseRedirect(reverse('cards:profile'))
