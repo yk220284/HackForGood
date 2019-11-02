@@ -114,3 +114,7 @@ def trade(request, acceptor_id):
         c1.save()
         c2.save()
     return HttpResponseRedirect(reverse('cards:profile'))
+
+
+def get_card(request):
+    return render(request, 'cards/get_card.html')

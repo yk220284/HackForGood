@@ -14,5 +14,6 @@ urlpatterns=[
     url(r'^gain_card/$', views.gain_card, name='gain card'),
     url(r'^avatar/$', views.avatar, name='avatar'),
     url(r'^game/$', views.game, name='game'),
-    url(r'^trade/(?P<acceptor_id>\d+)$', views.trade, name='trade')
+    url(r'^trade/(?P<acceptor_id>\d+)$', views.trade, name='trade'),
+    url(r'^get_card/$', views.get_card, name='get card')
 ]
