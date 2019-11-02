@@ -1,4 +1,6 @@
+{% load static %}
 <header>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <h1>Yoko</h1>
     <nav>
         <ul>
@@ -19,21 +21,13 @@
     <form action="{% url 'cards:change colour' %}" method="post">
         {% csrf_token %}
         <div class="entry">
-            <figure>
-                <img src="images/c12.jpg" />
-                <figcaption>
-                    <input type="radio" name="colour" value="yellow" />
-                    yellow
-                </figcaption>
+            <figure class="colour1"><img src="{% static 'images/c12.jpg' %}" alt="yellow" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="yellow" />yellow</figcaption>
             </figure>
-        </div>
+        <div/>
         <div class="entry">
-            <figure>
-                <img src="images/c2.jpg" />
-                <figcaption>
-                    <input type="radio" name="colour" value="white" />
-                    white
-                </figcaption>
+            <figure class="colour2"><img src="{% static 'images/c2.jpg' %}" alt="white" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="white" />white</figcaption>
             </figure>
         </div>
         <button name="submit">submit</button>
