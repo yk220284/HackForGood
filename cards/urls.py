@@ -13,4 +13,5 @@ urlpatterns=[
     url(r'^logout/$', views.logout_view, name='logout'),
     url(r'^gain_card/$', views.gain_card, name='gain card'),
     url(r'^avatar/$', views.avatar, name='avatar'),
+    url(r'^game/$', views.game, name='game'),
 ]

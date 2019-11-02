@@ -21,8 +21,12 @@ def profile(request):
         else:
             d[c.card_colour] = [c]
     dict(d)
-    context = {'player': player, 'dict': d.items()}
+    friends_list = Player.objects.all()
+    friends_list = list(friends_list)
+    friends_list.remove(player)
+    context = {'player': player, 'dict': d.items(), 'friends_list': friends_list}
     return render(request, 'cards/profile.html', context)
+
 
 @login_required
 def change_colour(request):
@@ -34,6 +38,7 @@ def change_colour(request):
         player.save()
         return HttpResponseRedirect(reverse('cards:avatar'))
     return render(request, 'cards/change_colour.html')
+
 
 @login_required
 def create_profile(request):
@@ -65,6 +70,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'cards/register.html', context)
 
+
 @login_required
 def logout_view(request):
     logout(request)
@@ -74,10 +80,10 @@ def logout_view(request):
 @login_required
 def gain_card(request):
     player = Player.objects.get(user=request.user)
-
     c = Card.objects.create(card_name='None', owner=player, card_colour=player.colour, original_owner=player)
     context = {'card': c}
     return HttpResponseRedirect(reverse('cards:profile'))
+
 
 @login_required
 def avatar(request):
@@ -89,3 +95,7 @@ def avatar(request):
         player.save()
         return HttpResponseRedirect(reverse('cards:profile'))
     return render(request, 'cards/avatar.html')
+
+
+def game(request):
+    return render(request,'cards/game.html')

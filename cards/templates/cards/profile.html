@@ -12,95 +12,144 @@
 </header>
 
 <body>
-    <div class="wrapper">
-        <header>
-            {% if player.profile_image == 'friend1' %}
-            <img src="{% static 'images/friend1.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            {% if player.profile_image == 'friend2' %}
-            <img src="{% static 'images/friend2.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            {% if player.profile_image == 'friend3' %}
-            <img src="{% static 'images/friend3.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            {% if player.profile_image == 'friend4' %}
-            <img src="{% static 'images/friend4.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            {% if player.profile_image == 'friend5' %}
-            <img src="{% static 'images/friend5.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            {% if player.profile_image == 'friend6' %}
-            <img src="{% static 'images/friend6.png' %}" alt="User Name" class="profile photo">
-            {% endif %}
-            <h2>{{player.name}}</h2>
-            <nav class="navbar navbar-default">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+<div class="wrapper">
+    <header>
+        {% if player.profile_image == 'friend1' %}
+        <img src="{% static 'images/friend1.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        {% if player.profile_image == 'friend2' %}
+        <img src="{% static 'images/friend2.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        {% if player.profile_image == 'friend3' %}
+        <img src="{% static 'images/friend3.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        {% if player.profile_image == 'friend4' %}
+        <img src="{% static 'images/friend4.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        {% if player.profile_image == 'friend5' %}
+        <img src="{% static 'images/friend5.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        {% if player.profile_image == 'friend6' %}
+        <img src="{% static 'images/friend6.png' %}" alt="User Name" class="profile photo">
+        {% endif %}
+        <h2>{{player.name}}</h2>
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <button class="w3-bar-item w3-button tablink" onclick="showPage(event, 'Achievements')">
+                            Achievements
+                        </button>
+                    </li>
+                    <li>
+                        <button class="w3-bar-item w3-button tablink" onclick="showPage(event, 'Friends')">Friends
+                        </button>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'cards:gain card' %}">get a card</a></li>
+                    <li><a href="{% url 'cards:logout' %}">logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+</div>
+<div class="page" id="Friends" style="display:none">
+    {% for friend in friends_list %}
+    <div class="w3-container">
+        <ul class="w3-ul w3-card-4">
+            <li class="w3-bar">
+                <a href="{% url 'cards:game' %}"
+                   class="w3-bar-item w3-button w3-white w3-xlarge w3-right">challenge</a>
+                {% if friend.profile_image == 'friend1' %}
+                <img src="{% static 'images/friend1.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend2' %}
+                <img src="{% static 'images/friend2.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend3' %}
+                <img src="{% static 'images/friend3.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend4' %}
+                <img src="{% static 'images/friend4.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend5' %}
+                <img src="{% static 'images/friend5.png' %}" alt="User Name" class="w3-bar-item w3-circle w3-hide-small"
+                     style="width:85px">
+                {% endif %}
+                {% if friend.profile_image == 'friend6' %}
+                <img src="{% static 'images/friend6.png' %}" alt="User Name" class="w3-bar-item w3-circle
+                w3-hide-small" style="width:85px">
+                {% endif %}
+                <div class="w3-bar-item">
+                    <span class="w3-large">{{ friend.name }}</span><br>
+                    <span>{{friend.colour}}</span>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Achievement</a></li>
-                        <li><a href="#">Friends</a></li>
-                        <li><a href="{% url 'cards:gain card' %}">get a card</a></li>
-                        <li><a href="{% url 'cards:logout' %}">logout</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="page" id="Achievements" style="display:none">
+    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+        <h5 class="w3-bar-item">Colours</h5>
+        {% for colour, cards in dict %}
+        {% if colour == 'yellow' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/card5.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% if colour == 'red' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/card1.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% if colour == 'blue' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/card8.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% if colour == 'purple' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/card3.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% if colour == 'green' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/card10.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% if colour == 'white' %}
+        <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
+                src="{% static 'images/iconcardgrey.png' %}" width="70" height="80"/></button>
+        {% endif %}
+        {% endfor %}
     </div>
 
-    <section class="cards">
-        <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
-            <h5 class="w3-bar-item">Colours</h5>
-            {% for colour, cards in dict %}
-            {% if colour == 'yellow' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/card5.png' %}" width="70" height="80" /></button>
-            {% endif %}
-            {% if colour == 'red' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/card1.png' %}" width="70" height="80" /></button>
-            {% endif %}
-            {% if colour == 'blue' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/card8.png' %}" width="70" height="80" /></button>
-            {% endif %}
-            {% if colour == 'purple' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/card3.png' %}" width="70" height="80" /></button>
-            {% endif %}
-            {% if colour == 'green' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/card10.png' %}" width="70" height="80" /></button>
-            {% endif %}
-            {% if colour == 'white' %}
-            <button class="w3-bar-item w3-button tablink" onclick="openContact(event, '{{colour}}')"><img
-                    src="{% static 'images/iconcardgrey.png' %}" width="70" height="80" /></button>
-            {% endif %}
+    <div style="margin-left:130px">
+        <div class="w3-padding">All your collections</div>
+        {% for colour,cards in dict %}
+        <div id="{{colour}}" class="colour" style="display:none">
+            <h2>{{colour}}</h2>
+            {% for card in cards %}
+
+            <li>{{ card.original_owner }}</li>
             {% endfor %}
         </div>
-
-        <div style="margin-left:130px">
-            <div class="w3-padding">All your collections</div>
-            {% for colour,cards in dict %}
-            <div id="{{colour}}" class="colour" style="display:none">
-                <h2>{{colour}}</h2>
-                {% for card in cards %}
-
-                <li>{{ card.original_owner }}</li>
-                {% endfor %}
-            </div>
-            {% endfor %}
+        {% endfor %}
 
 
-
-        </div>
-
-        <script>
+    </div>
+    <script>
             function openContact(evt, colour_id) {
                 var i, x, tablinks;
                 x = document.getElementsByClassName("colour");
@@ -114,14 +163,24 @@
                 document.getElementById(colour_id).style.display = "block";
                 evt.currentTarget.className += " w3-red";
             }
-        </script>
-    </section>
-    <section>
-        {% for friend in friends_list %}
-        {{friend}}<br />
-        {% endfor %}
-    </section>
-    </div>
+            function showPage(evt, page_id) {
+                var i, x, tablinks;
+                x = document.getElementsByClassName("page");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < x.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                }
+                document.getElementById(page_id).style.display = "block";
+                evt.currentTarget.className += " w3-red";
+            }
+
+
+    </script>
+</div>
+</div>
 </body>
 
 </html>
