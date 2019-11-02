@@ -1,23 +1,10 @@
 {% load static %}
 <header>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <h1>Yoko</h1>
-    <nav>
-        <ul>
-            <li><a href=#>classes</a></li>
-            <li><a href=#>catr</a></li>
-            <li><a href=#>about</a></li>
-        </ul>
-    </nav>
+    <h1>Choose your colour</h1>
 </header>
 
 <body>
-    <article>
-        <h1>this is article</h1>
-    </article>
-    <aside>
-        <p>This shoule be on side </p>
-    </aside>
     <form action="{% url 'cards:change colour' %}" method="post">
         {% csrf_token %}
         <div class="entry">
@@ -30,9 +17,31 @@
                 <figcaption><input type="radio" name="colour" value="white" />white</figcaption>
             </figure>
         </div>
+        <div class="entry">
+            <figure class="colour1"><img src="{% static 'images/c8.jpg' %}" alt="blue" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="blue" />yellow</figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/c14.jpg' %}" alt="red" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="red" />white</figcaption>
+            </figure>
+        </div>
+        <div class="entry">
+            <figure class="colour1"><img src="{% static 'images/c6.jpg' %}" alt="green" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="green" />yellow</figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/c10.jpg' %}" alt="purple" width="100" height="100"/>
+                <figcaption><input type="radio" name="colour" value="purple" />white</figcaption>
+            </figure>
+        </div>
+        <br/>
+        <br/>
+            <br/>
+            <br/>
+            <br/>
         <button name="submit">submit</button>
     </form>
 </body>
-<footer>
-    &copy: 2011
-</footer>

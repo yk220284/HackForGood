@@ -11,5 +11,6 @@ urlpatterns=[
     url(r'^register/$', views.register, name='register'),
     url(r'^create_profile/$', views.create_profile, name='create profile'),
     url(r'^logout/$', views.logout_view, name='logout'),
-    url(r'^gain_card/$', views.gain_card, name='gain card')
+    url(r'^gain_card/$', views.gain_card, name='gain card'),
+    url(r'^avatar/$', views.avatar, name='avatar'),
 ]

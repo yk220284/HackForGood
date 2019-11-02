@@ -118,4 +118,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static").replace('\\', '/'),
 ]
-MEDIA_ROOT = '/Users/sumax/PycharmProjects/CLIC_game_project/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'static')

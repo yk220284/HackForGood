@@ -1,0 +1,48 @@
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <h1>Choose your avatar</h1>
+</header>
+
+<body>
+    <form action="{% url 'cards:avatar' %}" method="post">
+        {% csrf_token %}
+        <div class="entry">
+            <figure class="colour1"><img src="{% static 'images/friend1.png' %}" alt="friend1" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend1" /></figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/friend2.png' %}" alt="friend2" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend2" /></figcaption>
+            </figure>
+        </div>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/friend3.png' %}" alt="friend3" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend3" /></figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/friend4.png' %}" alt="friend4" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend4" /></figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/friend5.png' %}" alt="friend5" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend5" /></figcaption>
+            </figure>
+        <div/>
+        <div class="entry">
+            <figure class="colour2"><img src="{% static 'images/friend6.png' %}" alt="friend6" width="100" height="100"/>
+                <figcaption><input type="radio" name="profile_image" value="friend6" /></figcaption>
+            </figure>
+        <div/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        <button name="submit">submit</button>
+    </form>
+</body>
