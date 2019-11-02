@@ -1,6 +1,11 @@
+.colour1 {
+    float: left;
+}
 
-.colour1{
-float:left;}
+.colour2 {
+    float: left;
+}
 
-.colour2{
-float:left;}
+.Name {
+    background-color: blue;
+}
